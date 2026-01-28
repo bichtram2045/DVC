@@ -1,0 +1,30 @@
+name: Run Testim Tests
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  testim-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Testim CLI
+        run: npm install -g @testim/testim-cli
+
+      - name: Run Testim test suite
+        run: |
+          testim \
+            --token "${{ secrets.TESTIM_TOKEN }}" \
+            --project "${{ secrets.TESTIM_PROJECT_ID }}" \
+            --user "${{ secrets.TESTIM_USER_ID }}" \
+            --mode "selenium" \
+            --suite "Test1"
