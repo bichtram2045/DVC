@@ -4,13 +4,20 @@ on:
   workflow_dispatch:
 
 jobs:
-    run-testimio-cli:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-                # You can also change 'lts' to any supported LTS Node.js version.
-            - run: npm install -g @testim/testim-cli
-            - run: testim --token "${{ secrets.TESTIM_TOKEN }}" --project "${{ secrets.TESTIM_PROJECT_ID }}" --grid "Testim-HA-Grid" --mode "selenium" --suite "Suite1"
+  run-testimio-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 1. Cài đặt thêm @percy/cli để có lệnh thực thi
+      - run: npm install -g @testim/testim-cli @percy/cli
+
+      # 2. Thêm "percy exec --" vào trước lệnh testim
+      # 3. Khai báo PERCY_TOKEN trong phần env
+      - run: percy exec -- testim --token "${{ secrets.TESTIM_TOKEN }}" --project "${{ secrets.TESTIM_PROJECT_ID }}" --grid "Testim-HA-Grid" --mode "selenium" --suite "Suite1"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
