@@ -31,4 +31,4 @@ jobs:
             --project "${{ secrets.TESTIM_PROJECT_ID }}" \
             --grid "Testim-HA-Grid" \
             --mode "selenium" \
-            --suite "Suite1"
+            --suite "Test"
