@@ -43,7 +43,7 @@ jobs:
 
       # 6. Run aLL tests
       - name: Run TestNG testcases
-        run: mvn clean test
+        run: mvn test -Dtest=org.example.testcases.*
 
       # 7. Stop all containers (always)
       - name: Stop containers
