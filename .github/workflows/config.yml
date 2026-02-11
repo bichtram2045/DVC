@@ -23,7 +23,7 @@ jobs:
       # 3. Start Healenium stack
       - name: Start Healenium (docker-compose)
         run: |
-          docker compose -f infra/docker-compose-web.yaml up -d
+          docker compose -f ./infra/docker-compose-web.yaml up -d
           docker ps
 
       # 4. Start Selenium Standalone Chrome (port 4444)
@@ -41,7 +41,7 @@ jobs:
 
       # 6. Run aLL tests
       - name: Run TestNG testcases
-        run: mvn test -Dtest="org.example.testcases.*"
+        run: mvn clean test
 
       # 7. Stop all containers (always)
       - name: Stop containers
