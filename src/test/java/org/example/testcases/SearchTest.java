@@ -46,6 +46,7 @@ public class SearchTest extends BaseSetup {
             searchPage.goBack();
             searchPage.clickSearchBtn();
         }
+        System.out.println("Xong tc4");
     }
     
     @Test (priority = 2)
@@ -60,6 +61,7 @@ public class SearchTest extends BaseSetup {
         message = searchPage.getErrorMessage();
         Assert.assertTrue(message.contains("Không tìm thấy kết quả"), 
                 "Lỗi: Thông báo không đúng. Thực tế là: " + message);
+        System.out.println("Xong tc5");
     }
     
     @Test (priority = 3)
@@ -84,7 +86,8 @@ public class SearchTest extends BaseSetup {
         
         // Xác minh danh sách không thay đổi
         Assert.assertEquals(dataAfter, dataBefore, 
-        		"Lỗi: Danh sách kết quả đã bị thay đổi!");   
+        		"Lỗi: Danh sách kết quả đã bị thay đổi!");
+        System.out.println("Xong tc6");
     }
     
     @Test (priority = 4)
@@ -110,6 +113,7 @@ public class SearchTest extends BaseSetup {
         // Xác minh danh sách không thay đổi
         Assert.assertEquals(dataAfter, dataBefore, 
         		"Lỗi: Danh sách kết quả đã bị thay đổi!");
+        System.out.println("Xong tc7");
     }
     
     @Test (priority = 5)
@@ -130,6 +134,7 @@ public class SearchTest extends BaseSetup {
         // Xác minh danh sách kết quả sau khi search bằng chữa hoa, thường là giống nhau
         Assert.assertEquals(listLower, listUpper, 
                 "Lỗi: Kết quả tìm kiếm chữ hoa/thường không giống nhau!");
+        System.out.println("Xong tc8");
     }
 
     @AfterMethod
