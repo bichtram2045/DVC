@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.List;
 
-public class TestCase extends BaseSetup {
+public class SearchTest extends BaseSetup {
     HomePage homePage;
     SearchPage searchPage;
 
