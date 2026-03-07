@@ -37,7 +37,7 @@ jobs:
       - name: Run TestNG testcases
         env:
           TESTRAIL_USERNAME: ${{ secrets.TESTRAIL_USERNAME }}
-          TESTRAIL_PASS: ${{ secrets.TESTRAIL_PASSWORD }}
+          TESTRAIL_PASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
           TESTRAIL_URL: ${{ secrets.TESTRAIL_URL }}
         run: mvn clean test
 
