@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="All TestCases">
@@ -13,15 +12,10 @@
             <class name="com.dvc.tests.FAQDisplayAndPaginationTest"/>
         </classes>
     </test>
-</suite>
-
-=======
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Test Suite">
-    <test name="All TestCases">
-        <packages>
-            <package name="org.example.testcases"/>
-        </packages>
+    
+    <test name="Test Link">
+        <classes>
+            <class name="com.dvc.tests.HomeLinkTest"/>
+        </classes>
     </test>
 </suite>
->>>>>>> 603e54ed0df13fe8a59c8bfaf8c093a3231f7195
