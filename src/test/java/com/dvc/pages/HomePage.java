@@ -1,4 +1,4 @@
-package org.example.pages;
+package com.dvc.pages;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,6 +16,8 @@ import com.epam.healenium.SelfHealingDriver;
 
 public class HomePage {
     SelfHealingDriver driver;
+    WebDriverWait wait;
+	StringBuilder testRailLog;
     
     @FindBy(xpath = "//nav//a[contains(., 'Thông tin và dịch vụ')]")
 	WebElement ttdvBtn;
@@ -31,20 +33,41 @@ public class HomePage {
     
     @FindBy(css = "#tatCa a.item")
     List<WebElement> results;
+    
+    @FindBy(xpath = "//a[contains(text(),'Hỗ trợ')]")
+	WebElement supBtn;
+    
+    @FindBy(xpath = "//a[contains(text(),'Giới thiệu')]")
+	WebElement introBtn;
 
-    public HomePage(SelfHealingDriver driver) {
-        this.driver = driver;
+    public HomePage(SelfHealingDriver driver, StringBuilder testRailLog) {
+    	this.testRailLog = testRailLog;
+		this.driver = driver;
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
     
     public void hoverBtn () {
+    	testRailLog.append("Hover vào nút 'Thông tin và dịch vụ' \n");
     	Actions actions = new Actions(driver);
         actions.moveToElement(ttdvBtn).perform();
     }
     
-    public SearchPage clickChtgBtn () {
+    public FAQPage clickChtgBtn () {
+    	testRailLog.append("Nhấn nút 'Câu hỏi thường gặp' \n");
     	chtgBtn.click();
-    	return new SearchPage(driver);
+    	return new FAQPage(driver, testRailLog);
     }
     
+    public void hoverSupBtn () {
+    	testRailLog.append("Hover vào nút 'Hỗ trợ' \n");
+    	Actions actions = new Actions(driver);
+        actions.moveToElement(supBtn).perform();
+    }
+    
+    public IntroductionPage clickIntroBtn () {
+    	testRailLog.append("Nhấn nút 'Giới thiệu' \n");
+    	introBtn.click();
+    	return new IntroductionPage(driver, testRailLog);
+    }
 }

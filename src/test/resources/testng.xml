@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="All TestCases">
+    <test name="Test FAQ - Search">
+        <classes>
+            <class name="com.dvc.tests.SearchTest"/>
+        </classes>
+    </test>
+    
+    <test name="Test FAQ - Display and Pagination">
+        <classes>
+            <class name="com.dvc.tests.FAQDisplayAndPaginationTest"/>
+        </classes>
+    </test>
+</suite>
+

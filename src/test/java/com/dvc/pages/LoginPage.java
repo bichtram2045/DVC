@@ -1,4 +1,4 @@
-package org.example.pages;
+package com.dvc.pages;
 
 import org.openqa.selenium.By;
 import com.epam.healenium.SelfHealingDriver;
