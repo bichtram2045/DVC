@@ -8,12 +8,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeSuite;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BaseSetup {
     protected SelfHealingDriver driver;
-    protected String testCaseId;
+    public String testCaseId;
     protected StringBuilder testRailLog;
 
     public SelfHealingDriver getDriver() throws MalformedURLException {
@@ -23,16 +25,25 @@ public class BaseSetup {
         return driver;
     }
     
+    @BeforeSuite
+    public void setup() {
+        TestRailManager.createTestRun();
+    }
+    
+    public WebDriver getRawDriver() {
+        return driver.getDelegate();
+    }
+    
     @AfterMethod
     public void addResultsToTestRail(ITestResult result) {
-        if(result.getStatus() == ITestResult.SUCCESS) {
-            TestRailManager.addResultsForTestCase(testCaseId, TestRailManager.TEST_CASE_PASS_STATUS, 
-            		testRailLog.toString());
-        } else if(result.getStatus() == ITestResult.FAILURE) {
-            TestRailManager.addResultsForTestCase(testCaseId, TestRailManager.TEST_CASE_FAIL_STATUS,
-            		testRailLog.toString());
-        }
-        
+//        if(result.getStatus() == ITestResult.SUCCESS) {
+//            TestRailManager.addResultsForTestCase(testCaseId, TestRailManager.TEST_CASE_PASS_STATUS, 
+//            		testRailLog.toString());
+//        } else if(result.getStatus() == ITestResult.FAILURE) {
+//            TestRailManager.addResultsForTestCase(testCaseId, TestRailManager.TEST_CASE_FAIL_STATUS,
+//            		testRailLog.toString());
+//        }
+//        
         if (driver != null) {
             driver.quit();
         }

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="All TestCases">
+	
+	<listeners>
+        <listener class-name="com.dvc.listeners.TestRailTestListener"/>
+    </listeners>
+    
     <test name="Test FAQ - Search">
         <classes>
             <class name="com.dvc.tests.SearchTest"/>
