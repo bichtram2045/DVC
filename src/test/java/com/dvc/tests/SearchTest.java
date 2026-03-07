@@ -53,7 +53,7 @@ public class SearchTest extends BaseSetup {
 
 			String content = faqPage.getDetailFullText();
 			Assert.assertTrue(content.contains(key), "Lỗi: Nội dung thứ " + i + " không chứa từ khóa!");
-			testRailLog.append("Nội dung thứ " + i + " không chứa từ khóa! \n");
+			testRailLog.append("Nội dung thứ " + i + " chứa từ khóa! \n");
 
 			faqPage.goBack();
 			faqPage.clickSearchBtn();
