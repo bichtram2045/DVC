@@ -8,7 +8,7 @@ import com.gurock.testrail.APIClient;
 public class TestRailManager {
 	public static String TEST_RUN_ID = "13";
 	
-	public static String TEST_RAIL_USERNAME = System.getenv("TESTRAIL_USER");
+	public static String TEST_RAIL_USERNAME = System.getenv("TESTRAIL_USERNAME");
     public static String TEST_RAIL_PASSWORD = System.getenv("TESTRAIL_PASSWORD");
     
     public static String TEST_RAIL_ENGINE_URL = System.getenv("TESTRAIL_URL");
