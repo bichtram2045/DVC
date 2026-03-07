@@ -41,6 +41,10 @@ jobs:
 
       # 6. Run aLL tests
       - name: Run TestNG testcases
+      env:
+          TESTRAIL_USER: ${{ secrets.TESTRAIL_USERNAME }}
+          TESTRAIL_PASS: ${{ secrets.TESTRAIL_PASSWORD }}
+          TESTRAIL_URL: ${{ secrets.TESTRAIL_URL }}
         run: mvn clean test
 
       # 7. Stop all containers (always)
